@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pegasus Hotel | Corfu, Greece - Official Website</title>
+    <meta name="description" content="Live your Summer Days Relaxed & Pleasant at Pegasus Hotel in Roda, Corfu. Family-run hotel featuring the largest free-shaped pool in the North of the Island.">
+    <meta name="keywords" content="Pegasus Hotel, Corfu Hotel, Roda Corfu, Accommodation Corfu, Family Hotel Greece, Corfu Beach Holiday">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1e3d59;
+            --accent: #c5a880;
+            --accent-hover: #b3946b;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --max-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* UTILITIES */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-white);
+            border-radius: 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--accent);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--bg-white);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: var(--transition);
+            background-color: var(--bg-white);
+        }
+
+        /* HERO SECTION */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 37, 64, 0.5), rgba(10, 37, 64, 0.4)), url('hero-placeholder.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--bg-white);
+            padding-top: 90px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease;
+        }
+
+        /* ABOUT / HISTORY */
+        #about {
+            background-color: var(--bg-light);
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-feature-item {
+            background: var(--bg-white);
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .about-feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .about-image img {
+            box-shadow: 20px 20px 0px var(--accent);
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        /* ACCOMMODATION */
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .room-card {
+            background: var(--bg-white);
+            border: 1px solid #eee;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .room-img-container {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .room-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .room-card:hover .room-img-container img {
+            scale: 1.05;
+        }
+
+        .room-price {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .room-price span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .room-content {
+            padding: 25px;
+        }
+
+        .room-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .room-details {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .room-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            min-height: 54px;
+        }
+
+        /* FACILITIES & AMENITIES */
+        #facilities {
+            background-color: var(--bg-light);
+        }
+
+        .facilities-intro {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .facilities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .facility-block {
+            background: var(--bg-white);
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-top: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .facility-block:hover {
+            border-top: 3px solid var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .facility-icon {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .facility-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: currentColor;
+        }
+
+        .facility-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .facility-block ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* AMENITIES BADGES GRID */
+        .amenities-list-section {
+            margin-top: 60px;
+            background: var(--bg-white);
+            padding: 40px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.02);
+        }
+
+        .amenities-list-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .amenities-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .badge {
+            background-color: var(--bg-light);
+            color: var(--primary-light);
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+
+        /* EXPLORE THE ISLAND */
+        .explore-tabs-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .explore-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .explore-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .explore-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .beaches-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .beach-card {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .beach-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .beach-meta {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* GALLERY */
+        #gallery {
+            background-color: var(--bg-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 37, 64, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--bg-white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item:hover img {
+            scale: 1.1;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* CONTACT & LOCATION */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+        }
+
+        .contact-form-side h3, .location-side h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .location-info-block {
+            background-color: var(--bg-light);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--bg-white);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--bg-white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            background-color: rgba(255,255,255,0.05);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--bg-white);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 992px) {
+            .about-wrapper, .explore-tabs-content, .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-image {
+                order: -1;
+            }
+            .about-image img, .explore-image img {
+                height: 350px;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 90px;
+                flex-direction: column;
+                background-color: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                padding: 40px 0;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            
+            .beaches-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="#home">PEGASUS<span>HOTEL</span></a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#rooms" class="nav-link">Accommodation</a></li>
+                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
+                    <li><a href="#explore" class="nav-link">Explore Corfu</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home">
+            <div class="container hero-content">
+                <p>Welcome to Corfu</p>
+                <h1>Live your Summer Days<br>Relaxed & Pleasant</h1>
+                <a href="images/swimming-pool.jpg" class="btn">View Our Rooms</a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-text">
+                        <span style="color: var(--accent); font-weight:500; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px;">Established 1991</span>
+                        <h3>Our Family Story</h3>
+                        <p>Pegasus Hotel opened in May 1991, and is proudly owned and operated by the founding family. Set in a beautiful, spacious garden, our resort is designed to provide an unforgettable island getaway where the whole family can relax.</p>
+                        <p>The centerpiece of our hotel is a unique, bridge-flanked, free-shaped swimming pool – the largest in the North of the Island. Here you can enjoy the ultimate laid-back summer vibe under the shade of palm trees.</p>
+                        
+                        <div class="about-features">
+                            <div class="about-feature-item">
+                                <h4>Family Operated</h4>
+                                <p style="font-size:0.85rem; margin:0;">Warm hospitality and personalized service.</p>
+                            </div>
+                            <div class="about-feature-item">
+                                <h4>The Largest Pool</h4>
+                                <p style="font-size:0.85rem; margin:0;">Free-shaped pool flanked with scenic bridges.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <!-- Cseréld ki a src-t a saját képedre -->
+                        <img src="about-hotel.jpg" alt="Pegasus Hotel free-shaped swimming pool and garden">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCOMMODATION SECTION -->
+        <section id="rooms" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Our Rooms & Suites</h2>
+                <p class="section-subtitle">Find your perfect stay</p>
+                
+                <div class="room-grid">
+                    <!-- Room 1 -->
+                    <article class="room-card">
+                        <div class="room-img-container">
+                            <img src="room-double.jpg" alt="Double or Twin Room">
+                            <div class="room-price">From <span>50€</span> / night</div>
+                        </div>
+                        <div class="room-content">
+                            <h3>Double or Twin Room</h3>
+                            <div class="room-details">
+                                <span>Size: 20 m²</span>
+                                <span>Max: 2 Adults</span>
+                            </div>
+                            <p>Modern rooms with bright lighting, a well designed dressing table and a private bathroom.</p>
+                            <a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;">Book Now</a>
+                        </div>
+                    </article>
+
+                    <!-- Room 2 -->
+                    <article class="room-card">
+                        <div class="room-img-container">
+                            <img src="room-triple.jpg" alt="Triple Room">
+                            <div class="room-price">From <span>50€</span> / night</div>
+                        </div>
+                        <div class="room-content">
+                            <h3>Triple Room</h3>
+                            <div class="room-details">
+                                <span>Size: 24 m²</span>
+                                <span>Max: 3 Adults</span>
+                            </div>
+                            <p>Air-conditioned room featuring a mini fridge and a spacious, private balcony with views.</p>
+                            <a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;">Book Now</a>
+                        </div>
+                    </article>
+
+                    <!-- Room 3 -->
+                    <article class="room-card">
+                        <div class="room-img-container">
+                            <img src="room-family.jpg" alt="Family Room">
+                            <div class="room-price">From <span>50€</span> / night</div>
+                        </div>
+                        <div class="room-content">
+                            <h3>Family Room</h3>
+                            <div class="room-details">
+                                <span>Size: 20 m²</span>
+                                <span>Max: 2 Ad + 2 Ch</span>
+                            </div>
+                            <p>Comfortable open-plan layout suitable for 2 adults and 2 children (up to 8 years old).</p>
+                            <a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;">Book Now</a>
+                        </div>
+                    </article>
+
+                    <!-- Room 4 -->
+                    <article class="room-card">
+                        <div class="room-img-container">
+                            <img src="room-superior.jpg" alt="Superior Family Room">
+                            <div class="room-price">From <span>50€</span> / night</div>
+                        </div>
+                        <div class="room-content">
+                            <h3>Superior Family Room</h3>
+                            <div class="room-details">
+                                <span>Size: 40 m²</span>
+                                <span>Max: 5 Adults</span>
+                            </div>
+                            <p>Spacious accommodation featuring 2 separate bedrooms with an internal door connecting them.</p>
+                            <a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;">Book Now</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FACILITIES SECTION -->
+        <section id="facilities" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Hotel Facilities</h2>
+                <p class="section-subtitle">Everything you need for a perfect vacation</p>
+                
+                <div class="facilities-intro">
+                    <p>Offering an outdoor pool and children’s playground, Pegasus Hotel is set in Roda. The hotel has a sun terrace and views of the mountain, and guests can enjoy a meal at the restaurant or a drink at the bar.</p>
+                </div>
+
+                <div class="facilities-container">
+                    <!-- Block 1 -->
+                    <div class="facility-block">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 6H17V5c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v1H5c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 5h6v1H9V5zm10 14H5V8h14v11z"/></svg>
+                        </div>
+                        <h3>Lobby & Reception</h3>
+                        <ul>
+                            <li>24-hour Front Desk</li>
+                            <li>Multi-lingual Staff</li>
+                            <li>Currency Exchange</li>
+                            <li>Shared Lounge & Express Check-in</li>
+                        </ul>
+                    </div>
+
+                    <!-- Block 2 -->
+                    <div class="facility-block">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5h-2v-2h2v2zm0-4.5h-2V7h2v6z"/></svg>
+                        </div>
+                        <h3>Pool & Outdoors</h3>
+                        <ul>
+                            <li>Free-shaped Swimming Pool</li>
+                            <li>Sun Terrace with Umbrellas</li>
+                            <li>Children’s Playground & Waterslide</li>
+                            <li>Spacious Garden & Sun deck</li>
+                        </ul>
+                    </div>
+
+                    <!-- Block 3 -->
+                    <div class="facility-block">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.86 3.75 3.97V22h2.5v-9.03C11.34 12.86 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                        </div>
+                        <h3>Dining & Bars</h3>
+                        <ul>
+                            <li>Breakfast Buffet (Quality Greek items)</li>
+                            <li>Poolside Snack Bar (Varied Menu)</li>
+                            <li>Main Lounge Bar (Upstairs Setting)</li>
+                            <li>Restaurant & Main Bar Drinks</li>
+                        </ul>
+                    </div>
+
+                    <!-- Block 4 -->
+                    <div class="facility-block">
+                        <div class="facility-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.14 18.26 10.51 18.5 12 18.5c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                        </div>
+                        <h3>Services & Leisure</h3>
+                        <ul>
+                            <li>Car & Bike Rental Service</li>
+                            <li>Baggage Storage & Lockers</li>
+                            <li>Hair & Beauty Salon / Massage</li>
+                            <li>Laundry & Babysitting (on request)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AMENITIES QUICK LIST -->
+                <div class="amenities-list-section">
+                    <h4>Most Popular Amenities</h4>
+                    <div class="amenities-badges">
+                        <span class="badge">Free High-Speed WiFi</span>
+                        <span class="badge">Free Public On-Site Parking</span>
+                        <span class="badge">Family Rooms</span>
+                        <span class="badge">Pet Friendly (on request)</span>
+                        <span class="badge">Evening Entertainment</span>
+                        <span class="badge">Horse Riding & Diving Activities</span>
+                        <span class="badge">Cycling & Bicycle Rental</span>
+                        <span class="badge">Pool Table & Darts</span>
+                        <span class="badge">Library & Game Room</span>
+                        <span class="badge">Airport Shuttle Service</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPLORE CORFU SECTION -->
+        <section id="explore" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Explore Corfu Island</h2>
+                <p class="section-subtitle">Discover the beauty of the Ionian Sea</p>
+                
+                <div class="explore-tabs-content">
+                    <div class="explore-text">
+                        <h3>A Multicultural Charm</h3>
+                        <p>Corfu in Greece is strongly influenced by the Venetians, the French and the English, giving the island a cosmopolitan, multicultural charm. From lush green hills to noble mansions and from idyllic beaches to world-class museums, this island has everything it takes to please any type of traveler.</p>
+                        <p><strong>Corfu Town (22 km away):</strong> A brilliant base for exploration. Get lost in the narrow cobblestone alleys called “kandounia”, visit the Museum of Asian Art, walk down the famous Liston promenade, or stroll around the massive Spianada square. Moving away from the town, you’ll discover picturesque seaside villages, tiny verdant islets, and wild natural landscapes.</p>
+                    </div>
+                    <div class="explore-image">
+                        <img src="corfu-town.jpg" alt="Beautiful old town architecture in Corfu Greece">
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Playfair Display', serif; text-align:center; font-size:1.8rem; margin-top:40px; color:var(--primary);">Recommended Nearby Beaches</h3>
+                <div class="beaches-grid">
+                    <!-- Beach 1 -->
+                    <div class="beach-card">
+                        <h4>Paleokastritsa Beach</h4>
+                        <div class="beach-meta">23 km NW of Corfu Town • Diving Club, Sandy, Family Friendly</div>
+                        <p>Probably the most famous and picturesque beach resort on the island. Huge green cliffs surround the coast, and many mysterious sea caves can be visited by boat trips directly from the shore.</p>
+                    </div>
+                    <!-- Beach 2 -->
+                    <div class="beach-card">
+                        <h4>Agios Gordios Beach</h4>
+                        <div class="beach-meta">16 km SW of Corfu Town • Sandy, Organised, Tourist Facilities</div>
+                        <p>One of the most popular long sandy beaches in Corfu. It is completely surrounded by impressive rock formations, lush greenery, excellent water sports centers, and vibrant beach bars.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Photo Gallery</h2>
+                <p class="section-subtitle">A glimpse of Pegasus Hotel</p>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="gallery-1.jpg" alt="Hotel View 1">
+                        <div class="gallery-overlay">Hotel Grounds</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery-2.jpg" alt="Hotel View 2">
+                        <div class="gallery-overlay">Swimming Pool</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery-3.jpg" alt="Room Interior 1">
+                        <div class="gallery-overlay">Our Rooms</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery-4.jpg" alt="Restaurant/Bar">
+                        <div class="gallery-overlay">Dining & Bar</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery-5.jpg" alt="Garden/Playground">
+                        <div class="gallery-overlay">Garden Area</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery-6.jpg" alt="Nearby Beach Roda">
+                        <div class="gallery-overlay">Roda Beach</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & LOCATION SECTION -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <!-- Form Side -->
+                    <div class="contact-form-side">
+                        <h3>Get In Touch</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 25px;">Do you have any wishes, questions or booking inquiries? Drop us a message.</p>
+                        
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name (*)" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email (*)" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" placeholder="Your Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy" required>
+                                <label id="privacy-label" style="cursor: pointer;" for="privacy">I consent to Hotel's Privacy Policy.</label>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Location Side -->
+                    <div class="location-side">
+                        <h3>Our Location</h3>
+                        <div class="location-info-block">
+                            <p style="font-weight: 500; color: var(--primary); margin-bottom: 15px;">Lying only 1km away from Roda's beach, our hotel offers bright and cozy rooms.</p>
+                            
+                            <div class="info-item">
+                                <h4>Address</h4>
+                                <p>Sidari-Kassiopi Road Roda, 49081, Corfu – Greece</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>From Corfu International Airport</h4>
+                                <p>35,6 km (Approximately 45 minutes drive)</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>From Corfu Main Port</h4>
+                                <p>33,2 km (About 40 minutes drive)</p>
+                            </div>
+                        </div>
+
+                        <!-- Későbbi beágyazott Google Maps iframe helye -->
+                        <div class="map-placeholder">
+                            <span>[ Google Maps Interactive Map Placeholder ]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-logo">
+                    <h3>PEGASUS HOTEL</h3>
+                    <p>Live your Summer Days Relaxed & Pleasant in beautiful Corfu, Greece.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p style="margin-bottom: 8px;"><strong>Address:</strong> Sidari-Kassiopi Road Roda, Corfu</p>
+                    <p style="margin-bottom: 8px;"><strong>Tel:</strong> (+30) 26630 63400</p>
+                    <p><strong>Email:</strong> reservations@pegasus-hotel.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <p>Stay updated with our latest news and offers on social media.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Tripadvisor">TA</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pegasus Hotel. All Rights Reserved.</p>
+                <p>Designed, Developed & SEO with ♥</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTWEIGHT JAVASCRIPT FOR INTERACTION -->
+    <script>
+        // Mobile Navigation Hamburger Menu Toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // Dynamic Nav Link Active State on Scroll
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
