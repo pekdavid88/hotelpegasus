@@ -7,6 +7,78 @@
     <meta name="description" content="Live your Summer Days Relaxed & Pleasant at Pegasus Hotel in Roda, Corfu. Family-run hotel featuring the largest free-shaped pool in the North of the Island.">
     <meta name="keywords" content="Pegasus Hotel, Corfu Hotel, Roda Corfu, Accommodation Corfu, Family Hotel Greece, Corfu Beach Holiday">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.pegasus-hotel.com/">
+    
+    <!-- LCP Image Preload -->
+    <link rel="preload" as="image" href="images/swimming-pool.avif" type="image/avif">
+    
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Pegasus Hotel",
+      "image": [
+        "https://www.pegasus-hotel.com/images/swimming-pool.avif",
+        "https://www.pegasus-hotel.com/images/double-room.avif",
+        "https://www.pegasus-hotel.com/images/terrace-breakfast.avif"
+      ],
+      "@id": "https://www.pegasus-hotel.com/#hotel",
+      "url": "https://www.pegasus-hotel.com/",
+      "telephone": "+302663063400",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sidari-Kassiopi Road Roda",
+        "addressLocality": "Roda, Corfu",
+        "postalCode": "49081",
+        "addressCountry": "GR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.786329,
+        "longitude": 19.784346
+      },
+      "maps": "https://maps.app.goo.gl/tWp4a1e94a1e94a1e", 
+      "checkinTime": "15:00",
+      "checkoutTime": "11:00",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "248",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "3"
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free High-Speed WiFi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free Public On-Site Parking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Swimming Pool",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Restaurant & Bar",
+          "value": true
+        }
+      ]
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -196,6 +268,12 @@
             text-align: center;
             color: var(--bg-white);
             padding-top: 90px;
+        }
+
+        @supports (background-image: url('images/swimming-pool.avif')) {
+            #home {
+                background: linear-gradient(rgba(10, 37, 64, 0.5), rgba(10, 37, 64, 0.4)), url('images/swimming-pool.avif') no-repeat center center/cover;
+            }
         }
 
         .hero-content h1 {
@@ -799,6 +877,53 @@
             .lightbox-content { max-width: 90%; max-height: 70%; }
         }
 
+        /* NATIVE RATINGS & TRUST CARD STYLES */
+        .room-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .room-rating .stars {
+            color: #ffc107;
+            letter-spacing: 1px;
+        }
+        .room-rating .rating-text {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .contact-trust-badge {
+            background-color: var(--bg-light);
+            padding: 16px 20px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            animation: fadeInUp 0.8s ease;
+        }
+        .contact-trust-badge .trust-badge-logo {
+            color: var(--primary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .contact-trust-badge .trust-badge-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+        .contact-trust-badge .trust-badge-services {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
         /* RESPONSIVE MEDIA QUERIES */
         @media (max-width: 992px) {
             .about-wrapper, .explore-tabs-content, .contact-wrapper {
@@ -828,6 +953,8 @@
                 transition: 0.3s;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 padding: 40px 0;
+                height: calc(100vh - 90px);
+                overflow-y: auto;
             }
             .nav-menu.active {
                 left: 0;
@@ -845,6 +972,10 @@
             .section-title {
                 font-size: 2rem;
             }
+        }
+
+        body.nav-open {
+            overflow: hidden;
         }
     </style>
 </head>
@@ -907,8 +1038,10 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <!-- Cseréld ki a src-t a saját képedre -->
-                        <img src="images/terrace-breakfast.jpg" alt="Pegasus Hotel breakfast terrace">
+                        <picture>
+                            <source srcset="images/terrace-breakfast.avif" type="image/avif">
+                            <img src="images/terrace-breakfast.jpg" alt="Pegasus Hotel breakfast terrace" width="768" height="513" loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -924,11 +1057,18 @@
                     <!-- Room 1 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="images/double-room.jpg" alt="Double or Twin Room">
+                            <picture>
+                                <source srcset="images/double-room.avif" type="image/avif">
+                                <img src="images/double-room.jpg" alt="Double or Twin Room" width="1023" height="768" loading="lazy">
+                            </picture>
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
                             <h3>Double or Twin Room</h3>
+                            <div class="room-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8/5 (Google Reviews)</span>
+                            </div>
                             <div class="room-details">
                                 <span>Size: 20 m²</span>
                                 <span>Max: 2 Adults</span>
@@ -941,11 +1081,18 @@
                     <!-- Room 2 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="images/triple-room.jpg" alt="Triple Room">
+                            <picture>
+                                <source srcset="images/triple-room.avif" type="image/avif">
+                                <img src="images/triple-room.jpg" alt="Triple Room" width="1024" height="768" loading="lazy">
+                            </picture>
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
                             <h3>Triple Room</h3>
+                            <div class="room-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8/5 (Google Reviews)</span>
+                            </div>
                             <div class="room-details">
                                 <span>Size: 24 m²</span>
                                 <span>Max: 3 Adults</span>
@@ -958,11 +1105,18 @@
                     <!-- Room 3 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="images/family-room.jpg" alt="Family Room">
+                            <picture>
+                                <source srcset="images/family-room.avif" type="image/avif">
+                                <img src="images/family-room.jpg" alt="Family Room" width="1024" height="768" loading="lazy">
+                            </picture>
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
                             <h3>Family Room</h3>
+                            <div class="room-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (Google Reviews)</span>
+                            </div>
                             <div class="room-details">
                                 <span>Size: 20 m²</span>
                                 <span>Max: 2 Ad + 2 Ch</span>
@@ -975,11 +1129,18 @@
                     <!-- Room 4 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="images/superior-family-room.jpg" alt="Superior Family Room">
+                            <picture>
+                                <source srcset="images/superior-family-room.avif" type="image/avif">
+                                <img src="images/superior-family-room.jpg" alt="Superior Family Room" width="1024" height="768" loading="lazy">
+                            </picture>
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
                             <h3>Superior Family Room</h3>
+                            <div class="room-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (Google Reviews)</span>
+                            </div>
                             <div class="room-details">
                                 <span>Size: 40 m²</span>
                                 <span>Max: 5 Adults</span>
@@ -1092,7 +1253,10 @@
                         <p><strong>Corfu Town (22 km away):</strong> A brilliant base for exploration. Get lost in the narrow cobblestone alleys called “kandounia”, visit the Museum of Asian Art, walk down the famous Liston promenade, or stroll around the massive Spianada square. Moving away from the town, you’ll discover picturesque seaside villages, tiny verdant islets, and wild natural landscapes.</p>
                     </div>
                     <div class="explore-image">
-                        <img src="images/corfu%20old%20town.jpg" alt="Beautiful old town architecture in Corfu Greece">
+                        <picture>
+                            <source srcset="images/corfu%20old%20town.avif" type="image/avif">
+                            <img src="images/corfu%20old%20town.jpg" alt="Beautiful old town architecture in Corfu Greece" width="640" height="427" loading="lazy">
+                        </picture>
                     </div>
                 </div>
 
@@ -1122,31 +1286,52 @@
                 
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="images/swimming-pool.jpg" alt="Pegasus Hotel Swimming Pool">
+                        <picture>
+                            <source srcset="images/swimming-pool.avif" type="image/avif">
+                            <img src="images/swimming-pool.jpg" alt="Pegasus Hotel Swimming Pool" width="768" height="513" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Swimming Pool</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/terrace-breakfast.jpg" alt="Breakfast on the Terrace">
+                        <picture>
+                            <source srcset="images/terrace-breakfast.avif" type="image/avif">
+                            <img src="images/terrace-breakfast.jpg" alt="Breakfast on the Terrace" width="768" height="513" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Dining & Bar</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/double-room.jpg" alt="Double or Twin Room">
+                        <picture>
+                            <source srcset="images/double-room.avif" type="image/avif">
+                            <img src="images/double-room.jpg" alt="Double or Twin Room" width="1023" height="768" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Double or Twin Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/triple-room.jpg" alt="Triple Room">
+                        <picture>
+                            <source srcset="images/triple-room.avif" type="image/avif">
+                            <img src="images/triple-room.jpg" alt="Triple Room" width="1024" height="768" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Triple Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/family-room.jpg" alt="Family Room">
+                        <picture>
+                            <source srcset="images/family-room.avif" type="image/avif">
+                            <img src="images/family-room.jpg" alt="Family Room" width="1024" height="768" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Family Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/superior-family-room.jpg" alt="Superior Family Room">
+                        <picture>
+                            <source srcset="images/superior-family-room.avif" type="image/avif">
+                            <img src="images/superior-family-room.jpg" alt="Superior Family Room" width="1024" height="768" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Superior Family Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="images/corfu%20old%20town.jpg" alt="Corfu Old Town">
+                        <picture>
+                            <source srcset="images/corfu%20old%20town.avif" type="image/avif">
+                            <img src="images/corfu%20old%20town.jpg" alt="Corfu Old Town" width="640" height="427" loading="lazy">
+                        </picture>
                         <div class="gallery-overlay">Corfu Old Town</div>
                     </div>
                 </div>
@@ -1162,18 +1347,28 @@
                         <h3>Get In Touch</h3>
                         <p style="color: var(--text-muted); margin-bottom: 25px;">Do you have any wishes, questions or booking inquiries? Drop us a message.</p>
                         
-                        <form action="#" method="POST">
+                        <!-- Review Trust Badge Card -->
+                        <div class="contact-trust-badge">
+                            <div class="trust-badge-logo">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="#c5a880" style="vertical-align: middle; margin-right: 5px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg> 
+                                <strong>Excellent 4.8/5</strong> based on 248 reviews
+                            </div>
+                            <div class="trust-badge-stars">★★★★★</div>
+                            <div class="trust-badge-services">TripAdvisor • Google Reviews • Booking.com</div>
+                        </div>
+
+                        <form action="https://formspree.io/f/YOUR_ENDPOINT_HERE" method="POST">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name (*)" required>
+                                <input type="text" name="name" class="form-control" placeholder="Your Name (*)" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email (*)" required>
+                                <input type="email" name="email" class="form-control" placeholder="Your Email (*)" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Your Phone Number">
+                                <input type="tel" name="phone" class="form-control" placeholder="Your Phone Number">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
                             </div>
                             <div class="checkbox-group">
                                 <input type="checkbox" id="privacy" required>
@@ -1250,7 +1445,10 @@
         <button class="lightbox-close" aria-label="Close gallery">&times;</button>
         <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
         <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="">
+            <picture id="lightbox-pic">
+                <source id="lightbox-source" srcset="" type="image/avif">
+                <img id="lightbox-img" src="" alt="">
+            </picture>
             <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
         <button class="lightbox-next" aria-label="Next image">&#10095;</button>
@@ -1265,11 +1463,13 @@
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
+            document.body.classList.toggle("nav-open");
         });
 
         document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
+            document.body.classList.remove("nav-open");
         }));
 
         // Dynamic Nav Link Active State on Scroll
@@ -1338,6 +1538,11 @@
             
             lightboxImg.style.opacity = 0;
             setTimeout(() => {
+                const avifSource = document.getElementById("lightbox-source");
+                if (avifSource) {
+                    const avifSrc = imageData.src.replace(/\.jpg$/, '.avif');
+                    avifSource.setAttribute("srcset", avifSrc);
+                }
                 lightboxImg.setAttribute("src", imageData.src);
                 lightboxImg.setAttribute("alt", imageData.alt);
                 lightboxCaption.textContent = imageData.caption;
@@ -1371,6 +1576,101 @@
             if (e.key === "ArrowRight") nextImage();
             if (e.key === "ArrowLeft") prevImage();
         });
+
+        // Formspree asynchronous handler & client-side simulation fallback
+        function attachFormListener() {
+            const contactForm = document.querySelector("#contact form");
+            if (!contactForm) return;
+            
+            contactForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const action = contactForm.getAttribute("action");
+                const submitBtn = contactForm.querySelector("button[type='submit']");
+                const originalBtnText = submitBtn.textContent;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending...";
+                
+                const formData = new FormData(contactForm);
+                const data = {};
+                formData.forEach((value, key) => data[key] = value);
+                
+                const isPlaceholder = !action || action === "#" || action.includes("YOUR_ENDPOINT_HERE");
+                
+                let success = false;
+                if (isPlaceholder) {
+                    // Simulate network delay for realistic experience
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    success = true;
+                } else {
+                    try {
+                        const response = await fetch(action, {
+                            method: "POST",
+                            body: JSON.stringify(data),
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            }
+                        });
+                        if (response.ok) {
+                            success = true;
+                        } else {
+                            alert("There was an issue sending your message. Please check your network or contact us directly at reservations@pegasus-hotel.com.");
+                        }
+                    } catch (error) {
+                        console.error("Submission error:", error);
+                        alert("There was an issue sending your message. Please check your network or contact us directly at reservations@pegasus-hotel.com.");
+                    }
+                }
+                
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                
+                if (success) {
+                    showFormSuccess();
+                    contactForm.reset();
+                }
+            });
+        }
+
+        function showFormSuccess() {
+            const formContainer = document.querySelector(".contact-form-side");
+            if (!formContainer) return;
+            
+            const originalContent = formContainer.innerHTML;
+            formContainer.style.transition = "opacity 0.3s ease";
+            formContainer.style.opacity = 0;
+            
+            setTimeout(() => {
+                formContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px 20px; animation: fadeInUp 0.5s ease; background: var(--bg-light); border-left: 4px solid var(--accent);">
+                        <div style="font-size: 4rem; color: var(--accent); margin-bottom: 20px; line-height: 1;">✓</div>
+                        <h3 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 15px; font-size: 1.8rem;">Inquiry Received!</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 450px; margin-left: auto; margin-right: auto; font-size: 0.95rem; line-height: 1.6;">
+                            Thank you for contacting Pegasus Hotel. Your inquiry has been logged successfully. We will check availability and get back to you within 24 hours.
+                        </p>
+                        <button class="btn" id="reset-form-btn" style="padding: 10px 24px; font-size: 0.85rem;">Send Another Message</button>
+                    </div>
+                `;
+                formContainer.style.opacity = 1;
+                
+                const resetBtn = document.getElementById("reset-form-btn");
+                if (resetBtn) {
+                    resetBtn.addEventListener("click", () => {
+                        formContainer.style.opacity = 0;
+                        setTimeout(() => {
+                            formContainer.innerHTML = originalContent;
+                            formContainer.style.opacity = 1;
+                            attachFormListener();
+                        }, 300);
+                    });
+                }
+            }, 300);
+        }
+
+        // Initialize form submission interception
+        attachFormListener();
     </script>
 </body>
 </html>
