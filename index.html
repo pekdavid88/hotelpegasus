@@ -692,6 +692,113 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 85%;
+            max-height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.15s ease-in-out;
+            animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-caption {
+            color: var(--bg-white);
+            margin-top: 15px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close, .lightbox-prev, .lightbox-next {
+            position: absolute;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2100;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .lightbox-close {
+            top: 25px;
+            right: 25px;
+            font-size: 3rem;
+        }
+
+        .lightbox-prev {
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-next {
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        body.lightbox-open {
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-prev { left: 10px; font-size: 2rem; }
+            .lightbox-next { right: 10px; font-size: 2rem; }
+            .lightbox-close { top: 15px; right: 15px; font-size: 2.5rem; }
+            .lightbox-content { max-width: 90%; max-height: 70%; }
+        }
+
         /* RESPONSIVE MEDIA QUERIES */
         @media (max-width: 992px) {
             .about-wrapper, .explore-tabs-content, .contact-wrapper {
@@ -801,7 +908,7 @@
                     </div>
                     <div class="about-image">
                         <!-- Cseréld ki a src-t a saját képedre -->
-                        <img src="images/terrace-breakfast.jpg" alt="Pegasus Hotel free-shaped swimming pool and garden">
+                        <img src="images/terrace-breakfast.jpg" alt="Pegasus Hotel breakfast terrace">
                     </div>
                 </div>
             </div>
@@ -834,7 +941,7 @@
                     <!-- Room 2 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="room-triple.jpg" alt="Triple Room">
+                            <img src="images/triple-room.jpg" alt="Triple Room">
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
@@ -851,7 +958,7 @@
                     <!-- Room 3 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="room-family.jpg" alt="Family Room">
+                            <img src="images/family-room.jpg" alt="Family Room">
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
@@ -868,7 +975,7 @@
                     <!-- Room 4 -->
                     <article class="room-card">
                         <div class="room-img-container">
-                            <img src="room-superior.jpg" alt="Superior Family Room">
+                            <img src="images/superior-family-room.jpg" alt="Superior Family Room">
                             <div class="room-price">From <span>50€</span> / night</div>
                         </div>
                         <div class="room-content">
@@ -985,7 +1092,7 @@
                         <p><strong>Corfu Town (22 km away):</strong> A brilliant base for exploration. Get lost in the narrow cobblestone alleys called “kandounia”, visit the Museum of Asian Art, walk down the famous Liston promenade, or stroll around the massive Spianada square. Moving away from the town, you’ll discover picturesque seaside villages, tiny verdant islets, and wild natural landscapes.</p>
                     </div>
                     <div class="explore-image">
-                        <img src="corfu-town.jpg" alt="Beautiful old town architecture in Corfu Greece">
+                        <img src="images/corfu%20old%20town.jpg" alt="Beautiful old town architecture in Corfu Greece">
                     </div>
                 </div>
 
@@ -1015,28 +1122,32 @@
                 
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="gallery-1.jpg" alt="Hotel View 1">
-                        <div class="gallery-overlay">Hotel Grounds</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="gallery-2.jpg" alt="Hotel View 2">
+                        <img src="images/swimming-pool.jpg" alt="Pegasus Hotel Swimming Pool">
                         <div class="gallery-overlay">Swimming Pool</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="gallery-3.jpg" alt="Room Interior 1">
-                        <div class="gallery-overlay">Our Rooms</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="gallery-4.jpg" alt="Restaurant/Bar">
+                        <img src="images/terrace-breakfast.jpg" alt="Breakfast on the Terrace">
                         <div class="gallery-overlay">Dining & Bar</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="gallery-5.jpg" alt="Garden/Playground">
-                        <div class="gallery-overlay">Garden Area</div>
+                        <img src="images/double-room.jpg" alt="Double or Twin Room">
+                        <div class="gallery-overlay">Double or Twin Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="gallery-6.jpg" alt="Nearby Beach Roda">
-                        <div class="gallery-overlay">Roda Beach</div>
+                        <img src="images/triple-room.jpg" alt="Triple Room">
+                        <div class="gallery-overlay">Triple Room</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/family-room.jpg" alt="Family Room">
+                        <div class="gallery-overlay">Family Room</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/superior-family-room.jpg" alt="Superior Family Room">
+                        <div class="gallery-overlay">Superior Family Room</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/corfu%20old%20town.jpg" alt="Corfu Old Town">
+                        <div class="gallery-overlay">Corfu Old Town</div>
                     </div>
                 </div>
             </div>
@@ -1094,7 +1205,7 @@
 
                         <!-- Későbbi beágyazott Google Maps iframe helye -->
                         <div class="map-placeholder">
-                            <span>[ Google Maps Interactive Map Placeholder ]</span>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.9209530640164!2d19.78434627575491!3d39.78632929376691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b45c311a44aab%3A0xb92d1dc5a98a51cf!2sPegasus%20Hotel!5e0!3m2!1shu!2ssk!4v1783688720009!5m2!1shu!2ssk" width="100%" height="100%" style="border:0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
                     </div>
                 </div>
@@ -1134,6 +1245,17 @@
         </div>
     </footer>
 
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Close gallery">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+    </div>
+
     <!-- LIGHTWEIGHT JAVASCRIPT FOR INTERACTION -->
     <script>
         // Mobile Navigation Hamburger Menu Toggle
@@ -1170,6 +1292,84 @@
                     link.classList.add("active");
                 }
             });
+        });
+
+        // Lightbox Gallery Implementation
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxCaption = document.getElementById("lightbox-caption");
+        const closeBtn = document.querySelector(".lightbox-close");
+        const prevBtn = document.querySelector(".lightbox-prev");
+        const nextBtn = document.querySelector(".lightbox-next");
+
+        let activeIndex = -1;
+        const imagesList = [];
+
+        galleryItems.forEach((item, index) => {
+            const img = item.querySelector("img");
+            const caption = item.querySelector(".gallery-overlay") ? item.querySelector(".gallery-overlay").textContent : "";
+            imagesList.push({
+                src: img.getAttribute("src"),
+                alt: img.getAttribute("alt"),
+                caption: caption
+            });
+
+            item.addEventListener("click", () => {
+                openLightbox(index);
+            });
+        });
+
+        function openLightbox(index) {
+            activeIndex = index;
+            updateLightboxContent();
+            lightbox.classList.add("active");
+            document.body.classList.add("lightbox-open");
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+            document.body.classList.remove("lightbox-open");
+        }
+
+        function updateLightboxContent() {
+            if (activeIndex < 0 || activeIndex >= imagesList.length) return;
+            const imageData = imagesList[activeIndex];
+            
+            lightboxImg.style.opacity = 0;
+            setTimeout(() => {
+                lightboxImg.setAttribute("src", imageData.src);
+                lightboxImg.setAttribute("alt", imageData.alt);
+                lightboxCaption.textContent = imageData.caption;
+                lightboxImg.style.opacity = 1;
+            }, 100);
+        }
+
+        function nextImage() {
+            activeIndex = (activeIndex + 1) % imagesList.length;
+            updateLightboxContent();
+        }
+
+        function prevImage() {
+            activeIndex = (activeIndex - 1 + imagesList.length) % imagesList.length;
+            updateLightboxContent();
+        }
+
+        closeBtn.addEventListener("click", closeLightbox);
+        nextBtn.addEventListener("click", nextImage);
+        prevBtn.addEventListener("click", prevImage);
+
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox || e.target.classList.contains("lightbox-content")) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (!lightbox.classList.contains("active")) return;
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "ArrowLeft") prevImage();
         });
     </script>
 </body>
